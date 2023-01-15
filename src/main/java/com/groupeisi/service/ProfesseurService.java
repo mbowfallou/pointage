@@ -41,9 +41,8 @@ public class ProfesseurService {
 	@Transactional(readOnly = true)
 	public Professeur getProfesseur(Integer id) {
 		 return professeurMapper.toProfesseur(professeurRepository.findById(id)
-				 .orElseThrow(() -> 
-				 new EntityNotFoundException(messageSource.getMessage("professeurId.notfound", new Object[]{id},
-						 Locale.getDefault()))));
+				 .orElseThrow(() -> new EntityNotFoundException(messageSource.getMessage("professeurId.notfound", new Object[]{id}, Locale.getDefault())))
+		 );
 	}
 
 	// Get One User By his Email
@@ -51,9 +50,7 @@ public class ProfesseurService {
 	public Professeur getProfesseurByEmail(String email) {
 		return professeurMapper.toProfesseur(Optional.ofNullable(professeurRepository.findByEmailIgnoreCase(email))
 				.orElseThrow(() ->
-					new EntityNotFoundException(messageSource.getMessage("professeurEmail.notfound", new Object[]{email},
-							Locale.getDefault())
-					)
+					new EntityNotFoundException(messageSource.getMessage("professeurEmail.notfound", new Object[]{email}, Locale.getDefault()))
 				)
 		);
 	}
@@ -105,7 +102,7 @@ public class ProfesseurService {
 					return professeurMapper.toProfesseur(professeurRepository.save(professeurMapper.fromProfesseur(Professeur)));
 				})
 				.orElseThrow(
-						() -> new EntityNotFoundException(messageSource.getMessage("professeur.notfound", new Object[]{id}, Locale.getDefault()))
+						() -> new EntityNotFoundException(messageSource.getMessage("professeurId.notfound", new Object[]{id}, Locale.getDefault()))
 				);
 	}
 	
@@ -114,8 +111,8 @@ public class ProfesseurService {
 		try {
 			professeurRepository.deleteById(id);
 		} catch (Exception e) {
-			throw new RequestException(messageSource.getMessage("professeur.errordeletion", new Object[] {id},
-					Locale.getDefault()), HttpStatus.CONFLICT);
+			throw new EntityNotFoundException(messageSource.getMessage("professeur.errordeletion", new Object[] {id},
+					Locale.getDefault()));
 		}
 	}
 

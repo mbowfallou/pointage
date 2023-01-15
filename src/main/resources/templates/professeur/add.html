@@ -19,6 +19,11 @@
             <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
         </div>
         <div class="form-group col-8 offset-2">
+            <label for="adresse">Adresse</label>
+            <input class="form-control" type="text" id="adresse" name="adresse" th:field="*{adresse}" th:value="*{adresse}" placeholder="Adresse"/>
+            <span th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}"></span>
+        </div>
+        <div class="form-group col-8 offset-2">
             <label for="email">Mail</label>
             <input class="form-control" type="text" id="email" name="email" th:field="*{email}" th:value="*{email}" placeholder="address@email.com"/>
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>

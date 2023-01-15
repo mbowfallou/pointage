@@ -18,10 +18,10 @@ public class PointageApplication {
 	@PostConstruct
 	public void initUsers(){
 		List<ProfesseurEntity> users = Stream.of(
-			new ProfesseurEntity(101, "MBOW", "Fallou", "", "mbow@gmail.com", "passer123", 1, null),
-			new ProfesseurEntity(102, "DIOP", "Moustapha", "", "diop@gmail.com", "passer123", 1, null),
-			new ProfesseurEntity(103, "SECK", "Diama", "", "seck@gmail.com", "passer123", 1, null),
-			new ProfesseurEntity(104, "TALL", "Madicke", "", "tall@gmail.com", "passer123", 1, null)
+			new ProfesseurEntity(101, "MBOW", "Fallou", "Hann Mariste 1", "mbow@gmail.com", "passer123", 1, null),
+			new ProfesseurEntity(102, "DIOP", "Moustapha", "Pikine Guinaw Rail", "diop@gmail.com", "passer123", 1, null),
+			new ProfesseurEntity(103, "SECK", "Diama", "Cité Keur Gorgui", "seck@gmail.com", "passer123", 1, null),
+			new ProfesseurEntity(104, "TALL", "Madicke", "Thiès - Hersent", "tall@gmail.com", "passer123", 1, null)
 		).collect(Collectors.toList());
 		repository.saveAll(users);
 	}
