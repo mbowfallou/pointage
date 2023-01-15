@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Ajout Professeur</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+    <form method="post" th:action="@{/professeur/save}" th:object="${professeur}" class="container">
+        <h3 class="h3 mt-4 mb-4 text-center">Professeur</h3>
+        <div class="form-group col-8 offset-2">
+            <label for="prenom">Prénom</label>
+            <input class="form-control" type="text" id="prenom" name="prenom" th:field="*{prenom}" th:value="*{nom}" placeholder="Prénom"/>
+            <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span>
+        </div>
+        <div class="form-group col-8 offset-2">
+            <label for="nom">Nom</label>
+            <input class="form-control" type="text" id="nom" name="nom" th:field="*{nom}" th:value="*{nom}" placeholder="Nom"/>
+            <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
+        </div>
+        <div class="form-group col-8 offset-2">
+            <label for="email">Mail</label>
+            <input class="form-control" type="text" id="email" name="email" th:field="*{email}" th:value="*{email}" placeholder="address@email.com"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div class="form-group col-8 offset-2">
+            <label for="password">Mot de passe</label>
+            <input class="form-control" type="text" id="password" name="password" th:field="*{password}" th:value="*{password}" placeholder="password"/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div>
+        <div class="form-group col-8 offset-2">
+            <label for="etat">Etat</label>
+            <input class="form-control" type="text" id="etat" name="etat" th:field="*{etat}" th:value="*{etat}"/>
+            <span th:if="${#fields.hasErrors('etat')}" th:errors="*{etat}"></span>
+        </div>
+
+        <div class="form-group col-8 offset-2">
+            <input class="btn btn-success" type="submit" name="envoyer" value="Envoyer"/>
+            <input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+        </div>
+    </form>
+    </body>
+</html>

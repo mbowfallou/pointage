@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Détail Professeur</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body class="container">
+        <div th:class="${style}" th:if="${success}" th:text="${success}"></div>
+        <table class="table table-striped container-fluid">
+            <caption class="text-center h3 text-secondary mt-4 mb-3" style="caption-side: top">Détails Professeur</caption>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom(s)</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Etat</th>
+            </tr>
+            <tr>
+                <td th:text="${professeur.getId()}"></td>
+                <td th:text="${professeur.getNom()}"></td>
+                <td th:text="${professeur.getPrenom()}"></td>
+                <td th:text="${professeur.getAdresse()}"></td>
+                <td th:text="${professeur.getEmail()}"></td>
+                <td th:text="${professeur.getEtat()}"></td>
+            </tr>
+        </table>
+        <div class="text-center">
+            <a th:href="@{/professeur/add}" class="btn btn-primary btn-lg mr-3">Ajout</a>
+            <a th:href="@{/professeur/list}" class="btn btn-secondary btn-lg ml-3">Liste</a>
+        </div>
+    </body>
+</html>
